@@ -1,0 +1,18 @@
+﻿@model HappyRentals.WebUI.Models.HomeOwnerListViewModel
+
+@{
+    ViewBag.Title = "Home Owners";
+}
+
+@foreach (var ho in Model.HomeOwners)
+{
+    <div class="item">
+        <h3>@ho.Name</h3>
+        @ho.Phone
+        @ho.Email
+    </div>
+}
+
+<div class="pager">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x}))
+</div>
